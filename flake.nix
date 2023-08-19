@@ -26,20 +26,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hyprland.url = "github:hyprwm/Hyprland";
-    xmonad-contrib.url = github:xmonad/xmonad-contrib;
+    hyprland.url = "github:hyprwm/Hyprland";
+    # xmonad-contrib.url = github:xmonad/xmonad-contrib;
   };
 
-  # outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
-  outputs = { self, nixpkgs, home-manager, xmonad-contrib, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, hyprland, ... }@inputs: {
+  # outputs = { self, nixpkgs, home-manager, xmonad-contrib, ... }@inputs: {
     nixosConfigurations = {
       "202308091237" = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         # specialArgs = { inherit inputs; };
 
         modules = [
-          # hyprland.nixosModules.default
-          # {programs.hyprland.enable = true;}
+          hyprland.nixosModules.default
+          {programs.hyprland.enable = true;}
 
           ./configuration.nix
 
@@ -55,12 +55,13 @@
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
-        ] ++ xmonad-contrib.nixosModules ++ [
-          # `modernise` replaces the standard xmonad module and wrapper script
-          # with those from unstable. This is currently a necessary workaround to
-          # make Mod-q recompilation work.
-          xmonad-contrib.modernise.x86_64-linux
-        ];
+	];
+        #] ++ xmonad-contrib.nixosModules ++ [
+        #  # `modernise` replaces the standard xmonad module and wrapper script
+        #  # with those from unstable. This is currently a necessary workaround to
+        #  # make Mod-q recompilation work.
+        #  xmonad-contrib.modernise.x86_64-linux
+        #];
       };
     };
   };
