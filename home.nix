@@ -32,6 +32,11 @@
   # basic configuration of git
   programs.git = {
     enable = true;
+    aliases = {
+      ci = "commit";
+      co = "checkout";
+      st = "status";
+    };
   };
 
   # Enable fish
