@@ -8,6 +8,18 @@
     source = ./dotfiles/.config/fish;
   };
 
+  #home.file.".Xresources" = {
+  #  source = ./dotfiles/.Xresources;
+  #};
+
+  home.file.".config/redshift/redshift.conf" = {
+    source = ./dotfiles/.config/redshift/redshift.conf;
+  };
+
+  home.file.".xinitrc" = {
+    source = ./dotfiles/.xinitrc;
+  };
+
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -24,10 +36,22 @@
   # '';
 
   # set cursor size and dpi for 4k monitor
-  #xresources.properties = {
-  #  "Xcursor.size" = 16;
-  #  "Xft.dpi" = 172;
-  #};
+  xresources.properties = {
+    "Xcursor.size" = 16;
+    "Xft.dpi" = 172;
+     
+    "Xft.antialias" = 1;
+    "Xft.hinting" = 1;
+    "Xft.autohint" = 0;
+    "Xft.rgba" = "rgb";
+    "Xft.hintstyle" = "hintslight";
+    "Xft.lcdfilter" = "lcddefault";
+  };
+
+  home.pointerCursor = {
+    package = pkgs.vanilla-dmz;
+    name = "Vanilla-DMZ-AA";
+  };
 
   # basic configuration of git
   programs.git = {
@@ -94,7 +118,7 @@
     settings = {
       env.TERM = "xterm-256color";
       font = {
-        size = 12;
+        size = 8;
         draw_bold_text_with_bright_colors = true;
       };
       scrolling.multiplier = 5;

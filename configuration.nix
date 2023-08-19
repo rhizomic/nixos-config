@@ -54,6 +54,21 @@
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+
+    enable = true;
+    autorun = false;
+    displayManager.startx.enable = true;
+
+    windowManager.xmonad = {
+      config = builtins.readFile ./xmonad.hs;
+      enable = true;
+      enableContribAndExtras = true;
+      flake = {
+        enable = true;
+      # prefix = "unstable";
+        compiler = "ghc924";
+      };
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -75,20 +90,22 @@
   environment.systemPackages = with pkgs; [
     # Flakes use git to pull dependencies
     git
+    # Essential for editing
     vim
+
+    # TODO: Probably can remove these?
     wget
     curl
-    keyd
-  ];
 
-  # X configuration that would normally live in an .xinitrc
-  environment.extraInit = ''
-    xsetroot -cursor_name left_ptr
-    xset -dpms
-    xset s noblank
-    xset s off
-    xset r rate 220 60
-  '';
+    # Remap escape and caps lock
+    keyd
+
+    # Cursor theme
+    vanilla-dmz
+
+    # Dim the lights as the sun goes down
+    redshift
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -122,20 +139,6 @@
       };
     };
   };
-
-  services.xserver.enable = true;
-  services.xserver.displayManager.startx.enable = true;
-
-  services.xserver.windowManager.xmonad = {
-     config = builtins.readFile ./xmonad.hs;
-     enable = true;
-     enableContribAndExtras = true;
-     flake = {
-       enable = true;
-     # prefix = "unstable";
-       compiler = "ghc924";
-     };
-   };
 
   # programs.hyprland.enable = true;
   # programs.sway.enable = true;
