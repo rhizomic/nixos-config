@@ -97,3 +97,19 @@ sudo chown -R rhizomic:users nixos-config
 ```
 
 * `reboot`
+
+* Log in as `rhizomic`
+
+* Set up SSH keys:
+
+```
+ssh-keygen -t ed25519 -C "whatever"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+```
+
+* If you need to copy the SSH key (for e.g., GitHub):
+
+```
+cat ~/.ssh/id_ed25519.pub
+```
