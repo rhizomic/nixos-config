@@ -46,6 +46,7 @@
   home.packages = with pkgs; [
     dmenu
     flameshot
+    tig
 
     # probably not necessary after moving away from X
     numlockx
