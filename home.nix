@@ -45,6 +45,10 @@
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     dmenu
+    flameshot
+
+    # probably not necessary after moving away from X
+    numlockx
 
     # archives
     zip
