@@ -62,6 +62,9 @@
     description = "rhizomic";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [];
+
+    # Set fish to be the default shell
+    shell = pkgs.fish;
   };
 
   # Allow unfree packages
@@ -114,6 +117,9 @@
 
   # programs.hyprland.enable = true;
   # programs.sway.enable = true;
+
+  # Vendor fish completions provided by Nixpkgs
+  programs.fish.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

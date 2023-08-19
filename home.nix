@@ -4,6 +4,10 @@
   home.username = "rhizomic";
   home.homeDirectory = "/home/rhizomic";
 
+  home.file.".config/fish" = {
+    source = ./dotfiles/.config/fish;
+  };
+
   # link the configuration file in current directory to the specified location in home directory
   # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
 
@@ -29,6 +33,9 @@
   programs.git = {
     enable = true;
   };
+
+  # Enable fish
+  programs.fish.enable = true;
 
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
