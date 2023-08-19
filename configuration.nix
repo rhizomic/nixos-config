@@ -78,6 +78,7 @@
     vim
     wget
     curl
+    keyd
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -99,6 +100,18 @@
       PasswordAuthentication = true;
     };
     openFirewall = true;
+  };
+
+  services.keyd = {
+    enable = true;
+    keyboards.default = {
+      settings.main = {
+        # Maps capslock to escape.
+        capslock = "esc";
+        # Remaps the escape key to capslock.
+        esc = "capslock";
+      };
+    };
   };
 
   services.xserver.enable = true;
