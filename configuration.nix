@@ -103,6 +103,9 @@
     # Cursor theme
     vanilla-dmz
 
+    # Fonts
+    powerline-fonts
+
     # Dim the lights as the sun goes down
     redshift
   ];
@@ -139,6 +142,10 @@
       };
     };
   };
+
+  fonts.fonts = with pkgs; [
+    powerline-fonts
+  ];
 
   # programs.hyprland.enable = true;
   # programs.sway.enable = true;
