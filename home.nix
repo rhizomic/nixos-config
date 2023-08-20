@@ -8,6 +8,10 @@
     source = ./dotfiles/.config/fish;
   };
 
+  home.file.".config/nvim" = {
+    source = ./dotfiles/.config/nvim;
+  };
+
   #home.file.".Xresources" = {
   #  source = ./dotfiles/.Xresources;
   #};
@@ -43,7 +47,7 @@
   xresources.properties = {
     "Xcursor.size" = 16;
     "Xft.dpi" = 172;
-     
+
     "Xft.antialias" = 1;
     "Xft.hinting" = 1;
     "Xft.autohint" = 0;
@@ -141,7 +145,7 @@
     '';
   };
 
-  
+
   # wayland.windowManager.hyprland.extraConfig = ''
   #   $mod = SUPER
 
