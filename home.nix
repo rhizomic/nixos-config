@@ -4,6 +4,15 @@
   home.username = "rhizomic";
   home.homeDirectory = "/home/rhizomic";
 
+  home.file.".config/base16-shell" = {
+    source = pkgs.fetchFromGitHub {
+      owner = "chriskempson";
+      repo = "base16-shell";
+      rev = "588691ba71b47e75793ed9edfcfaa058326a6f41";
+      sha256 = "X89FsG9QICDw3jZvOCB/KsPBVOLUeE7xN3VCtf0DD3E=";
+    };
+  };
+
   home.file.".config/fish" = {
     source = ./dotfiles/.config/fish;
   };
