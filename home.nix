@@ -103,6 +103,9 @@
     tmux
     # tmux session manager
     tmuxp
+
+    # programming
+    nodejs_20
   ];
 
   programs.bash = {
