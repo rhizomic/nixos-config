@@ -122,6 +122,31 @@
   # basic configuration of git
   programs.git = {
     enable = true;
+    extraConfig = {
+      core = {
+        # "autocrlf" behavior:
+        # ╔═══════════════╦══════════════╦══════════════╦══════════════╗
+        # ║ core.autocrlf ║     false    ║     input    ║     true     ║
+        # ╠═══════════════╬══════════════╬══════════════╬══════════════╣
+        # ║               ║ LF   => LF   ║ LF   => LF   ║ LF   => CRLF ║
+        # ║ git checkout  ║ CR   => CR   ║ CR   => CR   ║ CR   => CR   ║
+        # ║               ║ CRLF => CRLF ║ CRLF => CRLF ║ CRLF => CRLF ║
+        # ╠═══════════════╬══════════════╬══════════════╬══════════════╣
+        # ║               ║ LF   => LF   ║ LF   => LF   ║ LF   => LF   ║
+        # ║ git commit    ║ CR   => CR   ║ CR   => CR   ║ CR   => CR   ║
+        # ║               ║ CRLF => CRLF ║ CRLF => LF   ║ CRLF => LF   ║
+        # ╚═══════════════╩══════════════╩══════════════╩══════════════╝
+        # Taken from: https://stackoverflow.com/a/41282375
+        autocrlf = "input";
+        #
+        #
+        # Use less
+        #  -i: Smartcase searching
+        #  -+F: Don't quit if one screen (i.e., always use less when running
+        #       things like `git diff`)
+        pager = "less -i -+F";
+      };
+    };
     aliases = {
       ci = "commit";
       co = "checkout";
