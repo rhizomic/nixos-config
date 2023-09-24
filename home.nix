@@ -126,6 +126,10 @@
   # enable fish
   programs.fish.enable = true;
 
+  # Set the default editor to neovim
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   # wayland.windowManager.hyprland.extraConfig = ''
   #   $mod = SUPER

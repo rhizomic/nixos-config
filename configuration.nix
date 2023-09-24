@@ -91,7 +91,7 @@
     # Flakes use git to pull dependencies
     git
     # Essential for editing
-    vim
+    neovim
 
     # TODO: Probably can remove these?
     wget
@@ -109,6 +109,11 @@
     # Dim the lights as the sun goes down
     redshift
   ];
+
+  # Set the default editor to neovim
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
