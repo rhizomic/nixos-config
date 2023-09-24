@@ -21,10 +21,6 @@
     source = ./dotfiles/.config/nvim;
   };
 
-  #home.file.".Xresources" = {
-  #  source = ./dotfiles/.Xresources;
-  #};
-
   home.file.".config/redshift/redshift.conf" = {
     source = ./dotfiles/.config/redshift/redshift.conf;
   };
@@ -36,21 +32,6 @@
   home.file.".xinitrc" = {
     source = ./dotfiles/.xinitrc;
   };
-
-  # link the configuration file in current directory to the specified location in home directory
-  # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
-
-  # link all files in `./scripts` to `~/.config/i3/scripts`
-  # home.file.".config/i3/scripts" = {
-  #   source = ./scripts;
-  #   recursive = true;   # link recursively
-  #   executable = true;  # make all files executable
-  # };
-
-  # encode the file content in nix configuration file directly
-  # home.file.".xxx".text = ''
-  #     xxx
-  # '';
 
   # set cursor size and dpi for 4k monitor
   xresources.properties = {
@@ -65,31 +46,22 @@
     "Xft.lcdfilter" = "lcddefault";
   };
 
+  # set cursor theme
   home.pointerCursor = {
     package = pkgs.vanilla-dmz;
     name = "Vanilla-DMZ-AA";
   };
 
-  # basic configuration of git
-  programs.git = {
-    enable = true;
-    aliases = {
-      ci = "commit";
-      co = "checkout";
-      st = "status";
-    };
-  };
-
-  # Enable fish
-  programs.fish.enable = true;
-
-  # Packages that should be installed to the user profile.
+  # packages that should be installed to the user profile
   home.packages = with pkgs; [
     # terminal
     alacritty
 
+    # program launcher
     dmenu
+    # screenshots
     flameshot
+    # git tui
     tig
 
     # probably not necessary after moving away from X
@@ -112,39 +84,26 @@
     tree
     gnupg
 
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
+    # system monitoring
     btop
 
-    lsof # list open files
+    # list open files
+    lsof
+    # lspci
+    pciutils
+    # lsusb
+    usbutils
 
-    pciutils # lspci
-    usbutils # lsusb
-
+    # browser
     firefox-devedition
+    # editor
     neovim
+
+    # terminal multiplexer
     tmux
+    # tmux session manager
     tmuxp
   ];
-
-  ## alacritty - a cross-platform, GPU-accelerated terminal emulator
-  #programs.alacritty = {
-  #  enable = true;
-  #  # custom settings
-  #  settings = {
-  #    env.TERM = "alacritty";
-  #    font = {
-  #      size = 8;
-  #      draw_bold_text_with_bright_colors = true;
-  #    };
-  #    scrolling.multiplier = 5;
-  #    selection.save_to_clipboard = true;
-  #  };
-  #};
 
   programs.bash = {
     enable = true;
@@ -153,6 +112,19 @@
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin:$HOME/go/bin"
     '';
   };
+
+  # basic configuration of git
+  programs.git = {
+    enable = true;
+    aliases = {
+      ci = "commit";
+      co = "checkout";
+      st = "status";
+    };
+  };
+
+  # enable fish
+  programs.fish.enable = true;
 
 
   # wayland.windowManager.hyprland.extraConfig = ''
