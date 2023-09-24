@@ -104,6 +104,9 @@
     # tmux session manager
     tmuxp
 
+    # faster terminal navigation
+    zoxide
+
     # programming
     nodejs_20
   ];
