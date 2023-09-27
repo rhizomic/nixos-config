@@ -115,6 +115,9 @@
     # tmux session manager
     tmuxp
 
+    # terminal workspace
+    zellij
+
     # faster terminal navigation
     zoxide
 
