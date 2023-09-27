@@ -64,6 +64,12 @@
     # git tui
     tig
 
+    # program launcher
+    rofi
+
+    # clipboard manager
+    haskellPackages.greenclip
+
     # probably not necessary after moving away from X
     numlockx
 

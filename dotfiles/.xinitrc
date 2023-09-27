@@ -7,6 +7,8 @@ xset r rate 220 60
 
 redshift &
 
+greenclip daemon &
+
 numlockx
 
 xmonad

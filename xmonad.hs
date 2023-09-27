@@ -118,7 +118,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
      spawn "xscreensaver-command -lock")
 
   , ((modMask, xK_p),
-     spawn "dmenu_run")
+     spawn "rofi -show run")
+     -- spawn "dmenu_run")
+
+  , ((modMask, xK_i),
+     spawn "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'")
 
   -- Take a screenshot
   , ((0, xK_Print),
