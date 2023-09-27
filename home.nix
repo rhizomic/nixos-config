@@ -21,6 +21,10 @@
     source = ./dotfiles/.config/nvim;
   };
 
+  home.file.".config/greenclip.toml" = {
+    source = ./dotfiles/.config/greenclip.toml;
+  };
+
   home.file.".config/redshift/redshift.conf" = {
     source = ./dotfiles/.config/redshift/redshift.conf;
   };
