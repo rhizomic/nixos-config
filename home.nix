@@ -163,6 +163,12 @@
   # enable fish
   programs.fish.enable = true;
 
+  # configure rofi
+  programs.rofi = {
+    enable = true;
+    theme = "dmenu";
+  };
+
   # Set the default editor to neovim
   home.sessionVariables = {
     EDITOR = "nvim";
