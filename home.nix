@@ -110,6 +110,9 @@
     # editor
     neovim
 
+    # get/set contents of the X selection
+    xsel
+
     # terminal multiplexer
     tmux
     # tmux session manager
