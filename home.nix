@@ -74,6 +74,17 @@
     # probably not necessary after moving away from X
     numlockx
 
+    # audio
+    pavucontrol
+    pulseeffects-legacy
+    # all of these are necessary for pulseeffects
+    dconf
+    lsp-plugins
+    gst_all_1.gst-plugins-base
+    gst_all_1.gst-plugins-good
+    gst_all_1.gst-plugins-bad
+    gst_all_1.gst-plugins-ugly
+
     # archives
     zip
     xz

@@ -11,6 +11,12 @@
       ./hardware-configuration.nix
     ];
 
+  # Enable PulseAudio
+  hardware.pulseaudio = {
+    enable = true;
+    support32Bit = true;
+  };
+
   # Enable Flakes and the new CLI tool
   nix.settings.experimental-features = ["nix-command" "flakes" ];
 
@@ -75,7 +81,7 @@
   users.users.rhizomic = {
     isNormalUser = true;
     description = "rhizomic";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "networkmanager" "wheel" ];
     packages = with pkgs; [];
 
     # Set fish to be the default shell
