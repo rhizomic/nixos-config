@@ -120,6 +120,8 @@
 
     # programming
     nodejs_20
+    ruby
+    rubyPackages.pry
   ];
 
   programs.bash = {
