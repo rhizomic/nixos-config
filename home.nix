@@ -125,6 +125,7 @@
     nodejs_20
     ruby
     rubyPackages.pry
+    R
   ];
 
   programs.bash = {
