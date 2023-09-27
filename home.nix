@@ -62,14 +62,11 @@
     alacritty
 
     # program launcher
-    dmenu
+    rofi
     # screenshots
     flameshot
     # git tui
     tig
-
-    # program launcher
-    rofi
 
     # clipboard manager
     haskellPackages.greenclip
