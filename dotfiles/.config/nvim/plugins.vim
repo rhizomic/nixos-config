@@ -29,6 +29,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'kien/rainbow_parentheses.vim'
 " Typescript syntax/indentation/quickfix errors
 Plug 'leafgarland/typescript-vim'
+" Nix syntax
+Plug 'LnL7/vim-nix'
 Plug 'luisjure/csound-vim'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'mbbill/undotree'
